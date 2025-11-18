@@ -29,6 +29,6 @@ export class Home {
     this.housingLocationList = this.housingService.getAllHousingLocations();
   }  
 
-  // testing
+  // testing here
 }     
  
