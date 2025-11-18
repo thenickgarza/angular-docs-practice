@@ -27,5 +27,5 @@ export class Home {
 
   constructor() {
     this.housingLocationList = this.housingService.getAllHousingLocations();
-  }
+  }  
 }
