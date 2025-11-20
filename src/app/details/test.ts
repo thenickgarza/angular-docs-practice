@@ -1,15 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HousingService } from '../housing.service';
-import { HousingLocationInfo } from '../housinglocation';
-
-
-
+import {Component, inject} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HousingService} from '../housing.service';
+import {HousingLocationInfo} from '../housinglocation';
 @Component({
   selector: 'app-details',
-  imports: [],
   template: `
-  <article>
+    <article>
       <img
         class="listing-photo"
         [src]="housingLocation?.photo"
@@ -30,19 +26,14 @@ import { HousingLocationInfo } from '../housinglocation';
       </section>
     </article>
   `,
-  styleUrls: [`./details.css`]
+  styleUrls: ['./details.css'],
 })
 export class Details {
-  // this gives ability to have access to the data about the current route
-  route: ActivatedRoute = inject(ActivatedRoute)
-
-  housingService = inject(HousingService)
-
-  housingLocation: HousingLocationInfo | undefined
-
+  route: ActivatedRoute = inject(ActivatedRoute);
+  housingService = inject(HousingService);
+  housingLocation: HousingLocationInfo | undefined;
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId)
+    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
   }
-
 }
